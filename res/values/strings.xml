@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--
+    String File Naming Convention
+    a. string names are divided to 2 sections: control type & name;
+        a.1. Control type may include button, text (textView), action (menu), etc.
+        a.2. "Name" follows camel naming, i.e. fileSize, cameraPrmpt, etc.
+    b. To be contiuned.
+    -->
+
+
+    <!-- Main -->
+    <string name="app_name">StereoGIF</string>
+    <string name="title_activity_camera">Camera</string>
+
+    <!-- Buttons -->
+    <string name="button_shot">Shot</string>
+    <string name="button_gallery">Gallery</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="button_done">Done</string>
+    <string name="button_save">Save</string>
+    <string name="up">Up</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_exit">Exit</string>
+
+    <!-- Title Bars -->
+    <string name="title_preview">Preview</string>
+    <string name="title_selectedGIFs">Selected GIFs</string>
+
+    <!-- Messages -->
+    <string name="text_filesize">Proceeding with creating the GIF will result in a large file. Do you wish to continue?</string>
+    <string name="text_frameSelectionInfo">Swipe to select frames. Tap both to run through automatically.</string>
+    <string name="text_welcome">Welcome to StereoGIF! Tap any of the camera circles to begin.</string>
+    <string name="text_cameraPrompt">Shift your camera slightly to the right, rotating it slightly to the left.</string>
+    <string name="text_frameAdjustPrompt">Swipe up or down to adjust the value.</string>
+
+    <!-- Miscellaneous -->
+    <string name="hello_world">Hello world!</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="dummy_button">DUMMY BUTTON</string>
+
+    <!-- Image Captions -->
+    <string name="contentDescription_picturePreview">Photo Preview</string>
+    <string name="title_activity_photo_by_intent">PhotoByIntent</string>
+
+</resources>
