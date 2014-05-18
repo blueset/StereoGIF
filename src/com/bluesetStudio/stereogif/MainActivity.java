@@ -7,7 +7,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
+import android.widget.ImageButton;
 
 public class MainActivity extends Activity {
 
@@ -17,8 +17,8 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
-        
-        Button buttonShot = (Button) findViewById(R.id.button_shot);
+        //Button onclick
+        ImageButton buttonShot = (ImageButton) findViewById(R.id.button_shot);
         buttonShot.setOnClickListener(new OnClickListener() {
             
             @Override
