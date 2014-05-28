@@ -20,6 +20,8 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     }
     public static final class color {
         public static final int black_overlay=0x7f040000;
+        public static final int buttombar_pressed_translucent=0x7f040002;
+        public static final int mainActivity_Background=0x7f040003;
         public static final int transparent=0x7f040001;
     }
     public static final class dimen {
@@ -33,27 +35,30 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int activity_vertical_margin=0x7f050001;
     }
     public static final class drawable {
-        public static final int button_capture=0x7f020000;
-        public static final int camera_activity_button=0x7f020001;
-        public static final int camera_button_normal=0x7f020002;
-        public static final int camera_button_pressed=0x7f020003;
-        public static final int circular_done_button=0x7f020004;
-        public static final int ic_launcher=0x7f020005;
+        public static final int button_buttombar=0x7f020000;
+        public static final int button_capture=0x7f020001;
+        public static final int camera_activity_button=0x7f020002;
+        public static final int camera_button_normal=0x7f020003;
+        public static final int camera_button_pressed=0x7f020004;
+        public static final int circular_done_button=0x7f020005;
+        public static final int ic_launcher=0x7f020006;
     }
     public static final class id {
-        public static final int TextViewFileLocation=0x7f090009;
-        public static final int action_compose=0x7f09000c;
-        public static final int action_exit=0x7f09000b;
-        public static final int action_settings=0x7f09000a;
-        public static final int button_capture=0x7f090004;
-        public static final int button_gallery=0x7f090007;
-        public static final int button_shot=0x7f090006;
+        public static final int TextViewFileLocation=0x7f09000b;
+        public static final int action_compose=0x7f09000e;
+        public static final int action_exit=0x7f09000d;
+        public static final int action_settings=0x7f09000c;
+        public static final int button_capture=0x7f090005;
+        public static final int button_gallery=0x7f090009;
+        public static final int button_next=0x7f090006;
+        public static final int button_shot=0x7f090008;
         public static final int fullscreen_content=0x7f090002;
         public static final int fullscreen_content_controls=0x7f090003;
         public static final int imageView_preview=0x7f090001;
-        public static final int imageView_previewDiag=0x7f090008;
-        public static final int layout_shot=0x7f090005;
+        public static final int imageView_previewDiag=0x7f09000a;
+        public static final int layout_shot=0x7f090007;
         public static final int sView=0x7f090000;
+        public static final int textView_photoCount=0x7f090004;
     }
     public static final class layout {
         public static final int activity_camera=0x7f030000;
@@ -67,8 +72,8 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int photo_by_intent=0x7f080002;
     }
     public static final class string {
-        public static final int action_exit=0x7f060009;
-        public static final int action_settings=0x7f060008;
+        public static final int action_exit=0x7f06000a;
+        public static final int action_settings=0x7f060009;
         /** 
     String File Naming Convention
     a. string names are divided to 2 sections: control type & name;
@@ -81,35 +86,36 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
          */
         public static final int app_name=0x7f060000;
         public static final int button_cancel=0x7f060004;
-        public static final int button_capture=0x7f06000a;
+        public static final int button_capture=0x7f06000b;
         public static final int button_done=0x7f060005;
         public static final int button_gallery=0x7f060003;
-        public static final int button_save=0x7f060006;
+        public static final int button_next=0x7f060006;
+        public static final int button_save=0x7f060007;
         /**  Buttons 
          */
         public static final int button_shot=0x7f060002;
         /**  Image Captions 
          */
-        public static final int contentDescription_picturePreview=0x7f060015;
-        public static final int dummy_button=0x7f060014;
-        public static final int dummy_content=0x7f060013;
+        public static final int contentDescription_picturePreview=0x7f060016;
+        public static final int dummy_button=0x7f060015;
+        public static final int dummy_content=0x7f060014;
         /**  Miscellaneous 
          */
-        public static final int hello_world=0x7f060012;
-        public static final int text_cameraPrompt=0x7f060010;
+        public static final int hello_world=0x7f060013;
+        public static final int text_cameraPrompt=0x7f060011;
         /**  Messages 
          */
-        public static final int text_filesize=0x7f06000d;
-        public static final int text_frameAdjustPrompt=0x7f060011;
-        public static final int text_frameSelectionInfo=0x7f06000e;
-        public static final int text_welcome=0x7f06000f;
+        public static final int text_filesize=0x7f06000e;
+        public static final int text_frameAdjustPrompt=0x7f060012;
+        public static final int text_frameSelectionInfo=0x7f06000f;
+        public static final int text_welcome=0x7f060010;
         public static final int title_activity_camera=0x7f060001;
-        public static final int title_activity_photo_by_intent=0x7f060016;
+        public static final int title_activity_photo_by_intent=0x7f060017;
         /**  Title Bars 
          */
-        public static final int title_preview=0x7f06000b;
-        public static final int title_selectedGIFs=0x7f06000c;
-        public static final int up=0x7f060007;
+        public static final int title_preview=0x7f06000c;
+        public static final int title_selectedGIFs=0x7f06000d;
+        public static final int up=0x7f060008;
     }
     public static final class style {
         /** 

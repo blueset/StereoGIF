@@ -21,9 +21,12 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceHolder.Callback;
 import android.view.SurfaceView;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -38,9 +41,9 @@ import java.util.Date;
  * @see SystemUiHider
  */
 public class CameraActivity extends Activity {
+    private StereoGIF StereoGIF; 
     
-    
-    
+    private int photoCount = 0;
     static final int REQUEST_TAKE_PHOTO = 1;
     
     static final int REQUEST_IMAGE_CAPTURE = 1;
@@ -92,7 +95,17 @@ public class CameraActivity extends Activity {
 
         setContentView(R.layout.activity_camera);
 
-        
+        //OnClick Next
+        Button nextButton = (Button) findViewById(R.id.button_next);
+        nextButton.setOnClickListener(new OnClickListener() {
+            
+            @Override
+            public void onClick(View arg0) {
+                StereoGIF.setPhotoPaths("a");
+                Toast.makeText(CameraActivity.this, "kakakakak", Toast.LENGTH_LONG).show();
+                
+            }
+        });
 
         // Upon interacting with UI controls, delay any scheduled hide()
         // operations to prevent the jarring behavior of controls going away
@@ -233,11 +246,13 @@ public class CameraActivity extends Activity {
             
             String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
             String imageFileName = "JPEG_" + timeStamp + "_";
-            textPathTextView.setText(Environment  
+            final String filePathString = Environment  
                     .getExternalStorageDirectory()  
                     + "/"  
                     + imageFileName  
-                    + ".jpg");
+                    + ".jpg";
+            textPathTextView.setText(filePathString);
+            final TextView photoCountTextView = (TextView) findViewById(R.id.textView_photoCount);
             show.setImageBitmap(caputBitmap);
             
             new AlertDialog.Builder(CameraActivity.this)
@@ -250,18 +265,17 @@ public class CameraActivity extends Activity {
                             public void onClick(DialogInterface dialog, int which) {
                                 String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
                                 String imageFileName = "JPEG_" + timeStamp + "_";
-                                File file = new File(Environment  
-                                        .getExternalStorageDirectory()  
-                                        + "/"  
-                                        + imageFileName  
-                                        + ".jpg");  
-                                
+                                File file = new File(filePathString);  
                                 FileOutputStream fileOutStream=null;  
                                 try {  
                                     fileOutStream=new FileOutputStream(file);  
                                     //把位图输出到指定的文件中  
                                     caputBitmap.compress(CompressFormat.JPEG, 100, fileOutStream);  
                                     fileOutStream.close();  
+                                    StereoGIF.setPhotoPaths(filePathString);
+                                    photoCount += 1;
+                                    photoCountTextView.setText(Integer.toString(photoCount));
+                                    
                                 } catch (IOException io) {  
                                     io.printStackTrace();  
                                 }  

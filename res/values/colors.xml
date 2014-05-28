@@ -2,5 +2,7 @@
 
     <color name="black_overlay">#66000000</color>
     <color name="transparent">#0000</color>
+    <color name="buttombar_pressed_translucent">#6670d0ff</color>
+    <color name="mainActivity_Background">#12002D</color>
 
 </resources>
