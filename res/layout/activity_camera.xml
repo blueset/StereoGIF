@@ -11,10 +11,20 @@
          TextureView, etc.
     -->
 
+<<<<<<< HEAD
     <SurfaceView   
          android:id="@+id/sView"  
          android:layout_width="match_parent"  
          android:layout_height="wrap_content"/> 
+=======
+    <ImageView
+        android:id="@+id/imageView_preview"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:contentDescription="@string/contentDescription_picturePreview"
+        android:src="@android:drawable/ic_menu_gallery" />
+>>>>>>> 437cc804f0ea715d4be86b2970c9a7487ca8b4dc
 
     <!--
          This FrameLayout insets its children based on system windows using
@@ -34,8 +44,18 @@
             style="?buttonBarStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:background="@color/black_overlay"
             android:layout_gravity="bottom|right"
+=======
+<<<<<<< HEAD
+            android:layout_gravity="bottom|center_horizontal"
+            android:background="@color/black_overlay"
+=======
+            android:layout_gravity="bottom|right"
+            android:background="@color/transparent"
+>>>>>>> d27d50b67986b23b60dd2cc2289cd16e9b26e574
+>>>>>>> 437cc804f0ea715d4be86b2970c9a7487ca8b4dc
             android:orientation="horizontal"
             tools:ignore="UselessParent" >
 
@@ -54,6 +74,11 @@
                 android:id="@+id/dummy_button"
                 style="?buttonBarButtonStyle"
                 android:layout_width="0dp"
+<<<<<<< HEAD
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/dummy_button" />
+=======
                 android:layout_height="100dp"
                 android:scaleType="centerInside"
                 android:contentDescription="@string/button_capture"
@@ -68,7 +93,12 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/button_buttombar"
                 android:text="@string/button_next" />
+<<<<<<< HEAD
             
+=======
+
+>>>>>>> d27d50b67986b23b60dd2cc2289cd16e9b26e574
+>>>>>>> 437cc804f0ea715d4be86b2970c9a7487ca8b4dc
         </LinearLayout>
     </FrameLayout>
 
