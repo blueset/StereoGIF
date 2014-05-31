@@ -24,13 +24,10 @@
     <string name="up">Up</string>
     <string name="action_settings">Settings</string>
     <string name="action_exit">Exit</string>
-<<<<<<< HEAD
 
     <string name="button_capture">Capture</string>
     <string name="button_discard">Discard</string>
 
-=======
->>>>>>> 437cc804f0ea715d4be86b2970c9a7487ca8b4dc
 
     <!-- Title Bars -->
     <string name="title_preview">Preview</string>

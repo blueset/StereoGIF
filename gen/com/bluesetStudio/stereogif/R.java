@@ -29,20 +29,10 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int buttonBarStyle=0x7f010000;
     }
     public static final class color {
-<<<<<<< HEAD
         public static final int black_overlay=0x7f050000;
         public static final int buttombar_pressed_translucent=0x7f050002;
         public static final int mainActivity_Background=0x7f050003;
         public static final int transparent=0x7f050001;
-=======
-        public static final int black_overlay=0x7f040000;
-<<<<<<< HEAD
-=======
-        public static final int buttombar_pressed_translucent=0x7f040002;
-        public static final int mainActivity_Background=0x7f040003;
-        public static final int transparent=0x7f040001;
->>>>>>> d27d50b67986b23b60dd2cc2289cd16e9b26e574
->>>>>>> 437cc804f0ea715d4be86b2970c9a7487ca8b4dc
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -55,26 +45,10 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int activity_vertical_margin=0x7f060001;
     }
     public static final class drawable {
-<<<<<<< HEAD
-        public static final int ic_launcher=0x7f020000;
-    }
-    public static final class id {
-        public static final int action_compose=0x7f090009;
-        public static final int action_exit=0x7f090008;
-        public static final int action_settings=0x7f090007;
-        public static final int button_gallery=0x7f090006;
-        public static final int button_shot=0x7f090005;
-        public static final int dummy_button=0x7f090003;
-        public static final int fullscreen_content=0x7f090001;
-        public static final int fullscreen_content_controls=0x7f090002;
-        public static final int imageView_preview=0x7f090000;
-        public static final int layout_shot=0x7f090004;
-=======
         public static final int button_buttombar=0x7f020000;
         public static final int ic_launcher=0x7f020001;
     }
     public static final class id {
-<<<<<<< HEAD
         public static final int TextViewFileLocation=0x7f0b000b;
         public static final int action_exit=0x7f0b000f;
         public static final int action_settings=0x7f0b000e;
@@ -95,35 +69,14 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int sView=0x7f0b0000;
         public static final int textView_photoCount=0x7f0b0003;
         public static final int thumbImage=0x7f0b000c;
-=======
-        public static final int TextViewFileLocation=0x7f09000b;
-        public static final int action_compose=0x7f09000e;
-        public static final int action_exit=0x7f09000d;
-        public static final int action_settings=0x7f09000c;
-        public static final int button_capture=0x7f090005;
-        public static final int button_gallery=0x7f090009;
-        public static final int button_next=0x7f090006;
-        public static final int button_shot=0x7f090008;
-        public static final int fullscreen_content=0x7f090002;
-        public static final int fullscreen_content_controls=0x7f090003;
-        public static final int imageView_preview=0x7f090001;
-        public static final int imageView_previewDiag=0x7f09000a;
-        public static final int layout_shot=0x7f090007;
-        public static final int sView=0x7f090000;
-        public static final int textView_photoCount=0x7f090004;
->>>>>>> d27d50b67986b23b60dd2cc2289cd16e9b26e574
->>>>>>> 437cc804f0ea715d4be86b2970c9a7487ca8b4dc
     }
     public static final class layout {
         public static final int activity_camera=0x7f030000;
         public static final int activity_main=0x7f030001;
         public static final int activity_photo_by_intent=0x7f030002;
-<<<<<<< HEAD
         public static final int activity_photo_selection=0x7f030003;
         public static final int dialog_photo_confirm=0x7f030004;
         public static final int gridview_gallery_item=0x7f030005;
-=======
->>>>>>> 437cc804f0ea715d4be86b2970c9a7487ca8b4dc
     }
     public static final class menu {
         public static final int main=0x7f0a0000;
@@ -145,7 +98,6 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     
  Main 
          */
-<<<<<<< HEAD
         public static final int app_name=0x7f070000;
         public static final int button_cancel=0x7f070004;
         public static final int button_capture=0x7f07000b;
@@ -154,54 +106,14 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int button_gallery=0x7f070003;
         public static final int button_next=0x7f070006;
         public static final int button_save=0x7f070007;
-=======
-        public static final int app_name=0x7f060000;
-        public static final int button_cancel=0x7f060004;
-<<<<<<< HEAD
-=======
-        public static final int button_capture=0x7f06000b;
->>>>>>> d27d50b67986b23b60dd2cc2289cd16e9b26e574
-        public static final int button_done=0x7f060005;
-        public static final int button_gallery=0x7f060003;
-        public static final int button_next=0x7f060006;
-        public static final int button_save=0x7f060007;
->>>>>>> 437cc804f0ea715d4be86b2970c9a7487ca8b4dc
         /**  Buttons 
          */
         public static final int button_shot=0x7f070002;
         /**  Image Captions 
          */
-<<<<<<< HEAD
         public static final int contentDescription_picturePreview=0x7f070018;
         public static final int dummy_button=0x7f070017;
         public static final int dummy_content=0x7f070016;
-=======
-<<<<<<< HEAD
-        public static final int contentDescription_picturePreview=0x7f060014;
-        public static final int dummy_button=0x7f060013;
-        public static final int dummy_content=0x7f060012;
-        /**  Miscellaneous 
-         */
-        public static final int hello_world=0x7f060011;
-        public static final int text_cameraPrompt=0x7f06000f;
-        /**  Messages 
-         */
-        public static final int text_filesize=0x7f06000c;
-        public static final int text_frameAdjustPrompt=0x7f060010;
-        public static final int text_frameSelectionInfo=0x7f06000d;
-        public static final int text_welcome=0x7f06000e;
-        public static final int title_activity_camera=0x7f060001;
-        public static final int title_activity_photo_by_intent=0x7f060015;
-        /**  Title Bars 
-         */
-        public static final int title_preview=0x7f06000a;
-        public static final int title_selectedGIFs=0x7f06000b;
-        public static final int up=0x7f060007;
-=======
-        public static final int contentDescription_picturePreview=0x7f060016;
-        public static final int dummy_button=0x7f060015;
-        public static final int dummy_content=0x7f060014;
->>>>>>> 437cc804f0ea715d4be86b2970c9a7487ca8b4dc
         /**  Miscellaneous 
          */
         public static final int hello_world=0x7f070015;
@@ -263,16 +175,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int title_activity_settings=0x7f07001d;
         /**  Title Bars 
          */
-<<<<<<< HEAD
         public static final int title_preview=0x7f07000d;
         public static final int title_selectedGIFs=0x7f07000e;
         public static final int up=0x7f070008;
-=======
-        public static final int title_preview=0x7f06000c;
-        public static final int title_selectedGIFs=0x7f06000d;
-        public static final int up=0x7f060008;
->>>>>>> d27d50b67986b23b60dd2cc2289cd16e9b26e574
->>>>>>> 437cc804f0ea715d4be86b2970c9a7487ca8b4dc
     }
     public static final class style {
         /** 
