@@ -10,18 +10,14 @@
          is needed to present your content, e.g. VideoView, SurfaceView,
          TextureView, etc.
     -->
-	<SurfaceView   
-        android:id="@+id/sView"  
-        android:layout_width="match_parent"  
-        android:layout_height="wrap_content"/>  
+
     <ImageView
         android:id="@+id/imageView_preview"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:contentDescription="@string/contentDescription_picturePreview"
-        android:src="@android:drawable/ic_menu_gallery" 
-        android:visibility="invisible"/>
+        android:src="@android:drawable/ic_menu_gallery" />
 
     <!--
          This FrameLayout insets its children based on system windows using
@@ -42,22 +38,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center_horizontal"
-            android:background="@color/transparent"
+            android:background="@color/black_overlay"
             android:orientation="horizontal"
             tools:ignore="UselessParent" >
 
             
             
-            <ImageButton
-                android:id="@+id/button_capture"
-                android:background="@color/transparent"
+            <Button
+                android:id="@+id/dummy_button"
+                style="?buttonBarButtonStyle"
                 android:layout_width="0dp"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:scaleType="centerInside"
-                android:src="@drawable/button_capture"
-                android:contentDescription="@string/button_capture"
-                android:text="@string/button_capture" />
+                android:text="@string/dummy_button" />
         </LinearLayout>
     </FrameLayout>
 
