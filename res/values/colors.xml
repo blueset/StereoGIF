@@ -1,5 +1,11 @@
 <resources>
 
     <color name="black_overlay">#66000000</color>
+<<<<<<< HEAD
+=======
+    <color name="transparent">#0000</color>
+    <color name="buttombar_pressed_translucent">#6670d0ff</color>
+    <color name="mainActivity_Background">#12002D</color>
+>>>>>>> d27d50b67986b23b60dd2cc2289cd16e9b26e574
 
 </resources>

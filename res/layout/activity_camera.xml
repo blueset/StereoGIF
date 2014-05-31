@@ -37,20 +37,49 @@
             style="?buttonBarStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:layout_gravity="bottom|center_horizontal"
             android:background="@color/black_overlay"
+=======
+            android:layout_gravity="bottom|right"
+            android:background="@color/transparent"
+>>>>>>> d27d50b67986b23b60dd2cc2289cd16e9b26e574
             android:orientation="horizontal"
             tools:ignore="UselessParent" >
 
-            
+            <TextView
+                android:id="@+id/textView_photoCount"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_gravity="center"
+                android:text="0" />
             
             <Button
                 android:id="@+id/dummy_button"
                 style="?buttonBarButtonStyle"
                 android:layout_width="0dp"
+<<<<<<< HEAD
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/dummy_button" />
+=======
+                android:layout_height="100dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/button_capture"
+                android:contentDescription="@string/button_capture"
+                android:text="@string/button_capture" 
+                android:layout_weight="0.9"/>
+
+            <Button
+                style="@style/ButtonBarButton"
+                android:id="@+id/button_next"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:background="@drawable/button_buttombar"
+                android:text="@string/button_next" />
+
+>>>>>>> d27d50b67986b23b60dd2cc2289cd16e9b26e574
         </LinearLayout>
     </FrameLayout>
 
