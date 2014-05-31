@@ -10,12 +10,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+<<<<<<< HEAD
 
 import android.widget.ImageButton;
 import android.widget.Toast;
 
 import java.io.File;
 
+=======
+>>>>>>> 437cc804f0ea715d4be86b2970c9a7487ca8b4dc
 
 public class MainActivity extends Activity {
 
@@ -25,10 +28,15 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
+<<<<<<< HEAD
 
         //ButtonShot onClick
         ImageButton buttonShot = (ImageButton) findViewById(R.id.button_shot);
 
+=======
+        
+        Button buttonShot = (Button) findViewById(R.id.button_shot);
+>>>>>>> 437cc804f0ea715d4be86b2970c9a7487ca8b4dc
         buttonShot.setOnClickListener(new OnClickListener() {
             
             @Override
