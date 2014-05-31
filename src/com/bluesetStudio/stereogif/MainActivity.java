@@ -3,11 +3,19 @@ package com.bluesetStudio.stereogif;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
+
 import android.widget.ImageButton;
+import android.widget.Toast;
+
+import java.io.File;
+
 
 public class MainActivity extends Activity {
 
@@ -17,8 +25,10 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
-        //Button onclick
+
+        //ButtonShot onClick
         ImageButton buttonShot = (ImageButton) findViewById(R.id.button_shot);
+
         buttonShot.setOnClickListener(new OnClickListener() {
             
             @Override
@@ -29,6 +39,22 @@ public class MainActivity extends Activity {
                 
             }
         });
+        
+        //ButtonGallery onClick
+        Button galleryButton = (Button) findViewById(R.id.button_gallery);
+        galleryButton.setOnClickListener(new OnClickListener() {
+            
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, R.string.text_underDevelopement, Toast.LENGTH_SHORT).show();
+            }
+        });
+        
+        //Create StereoGIF Folder
+        File folder = new File(Environment.getExternalStorageDirectory() + "/StereoGIF");
+        if (!folder.exists()) {
+            folder.mkdir();
+        }
     }
 
 
@@ -41,15 +67,24 @@ public class MainActivity extends Activity {
         return super.onCreateOptionsMenu(menu);
         
     }
-    /*  Simply fetch the image from camera and show it's thumbnail some where.
+    
+    //Action bar manager
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            Bundle extras = data.getExtras();
-            Bitmap imageBitmap = (Bitmap) extras.get("data");
-            mImageView.setImageBitmap(imageBitmap); 
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()) {
+            case R.id.mainAB_action_setting:
+                onClickSetting();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
-    */
+    
+    //OnClick setting
+    public void onClickSetting(){
+        Intent settingIntent = new Intent(MainActivity.this, SettingsActivity.class);
+        startActivity(settingIntent);
+    }
     
 }

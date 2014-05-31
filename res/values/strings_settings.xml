@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pref_GIF_settings">GIF settings</string>
+    	<string name="pref_GIF_delay">Time interval (ms)</string>
+    	<string name="pref_GIF_delay_title">Set time interval</string>
+    	<string name="pref_GIF_delay_desc">Time interval for each frame. Unit: Millisecond. \n1000 millisecond  1 second. </string>
+    	
+    	<string name="pref_GIF_quality_name">Image quality</string>
+    	<string-array name="pref_GIF_quality_list_titles">
+    	    <item>High quality (256 colors)</item>
+    	    <item>Medium quality (128 colors)</item>
+    	    <item>Low quality (64 colors)</item>
+    	</string-array>
+    	<string-array name="pref_GIF_quality_list_values">
+    	    <item>256</item>
+    	    <item>128</item>
+    	    <item>64</item>
+    	</string-array>
+    	
+    	<string name="pref_GIF_size">Image size</string>
+    	<string-array name="pref_GIF_size_titles">
+    	    <item>Large</item>
+    	    <item>Medium</item>
+    	    <item>Small</item>
+    	</string-array>
+    	<string-array name="pref_GIF_size_values">
+    	    <item>1</item>
+    	    <item>2</item>
+    	    <item>3</item>
+    	</string-array>
+    	
+    <string name="pref_credits">Credits</string>
+    	<string name="pref_credits_team">Created by DevTeam 5</string>
+    	<string name="pref_credits_team_desc">Anderson Junior College 2014</string>
+    	
+    	<string name="pref_credits_eana">Han Jin</string>
+    	<string name="pref_credits_eana_desc">Programming. Blueset Studio 1A23.com</string>
+    	
+    	<string name="pref_credits_mint">Minton Tiew</string>
+    	<string name="pref_credits_mint_desc">Graphic design, idea provider.</string>
+    	
+    	<string name="pref_credits_zach">Zachary Teo</string>
+    	<string name="pref_credits_zach_desc">CCA President</string>
+    	
+    	<string name="pref_credits_sq">Shu Qing</string>
+    	<string name="pref_credits_sq_desc">Lorem ipsum dolor sit amet</string>
+    	
+    	<string name="pref_credits_bry">Bryan Lim</string>
+    	<string name="pref_credits_bry_desc">Consectetur adipiscing elit</string>
+</resources>

@@ -10,18 +10,11 @@
          is needed to present your content, e.g. VideoView, SurfaceView,
          TextureView, etc.
     -->
-	<SurfaceView   
-        android:id="@+id/sView"  
-        android:layout_width="match_parent"  
-        android:layout_height="wrap_content"/>  
-    <ImageView
-        android:id="@+id/imageView_preview"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:contentDescription="@string/contentDescription_picturePreview"
-        android:src="@android:drawable/ic_menu_gallery" 
-        android:visibility="invisible"/>
+
+    <SurfaceView   
+         android:id="@+id/sView"  
+         android:layout_width="match_parent"  
+         android:layout_height="wrap_content"/> 
 
     <!--
          This FrameLayout insets its children based on system windows using
@@ -41,38 +34,41 @@
             style="?buttonBarStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/black_overlay"
             android:layout_gravity="bottom|right"
-            android:background="@color/transparent"
             android:orientation="horizontal"
             tools:ignore="UselessParent" >
 
             <TextView
                 android:id="@+id/textView_photoCount"
+                style="@style/ButtonBarButton"
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
-                android:layout_gravity="center"
+                android:background="@drawable/button_buttombar"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:gravity="center"
                 android:text="0" />
             
-            <ImageButton
-                android:id="@+id/button_capture"
-                android:background="@color/transparent"
+            <Button
+                android:id="@+id/dummy_button"
+                style="?buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="100dp"
                 android:scaleType="centerInside"
-                android:src="@drawable/button_capture"
                 android:contentDescription="@string/button_capture"
                 android:text="@string/button_capture" 
                 android:layout_weight="0.9"/>
-
+<!-- android:src="@drawable/button_capture" -->
             <Button
-                style="@style/ButtonBarButton"
                 android:id="@+id/button_next"
+                style="@style/ButtonBarButton"
                 android:layout_width="wrap_content"
+                android:padding="1dp"
                 android:layout_height="match_parent"
-                android:layout_weight="0.1"
                 android:background="@drawable/button_buttombar"
                 android:text="@string/button_next" />
-
+            
         </LinearLayout>
     </FrameLayout>
 

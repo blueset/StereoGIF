@@ -5,6 +5,7 @@ import com.bluesetStudio.stereogif.util.SystemUiHider;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
 import android.graphics.BitmapFactory;
@@ -26,7 +27,6 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -49,69 +49,47 @@ public class CameraActivity extends Activity {
     static final int REQUEST_IMAGE_CAPTURE = 1;
     
     private static String mTAG = "CameraActivity"; 
-    /**
-     * Whether or not the system UI should be auto-hidden after
-     * {@link #AUTO_HIDE_DELAY_MILLIS} milliseconds.
-     */
-    private static final boolean AUTO_HIDE = true;
 
-    /**
-     * If {@link #AUTO_HIDE} is set, the number of milliseconds to wait after
-     * user interaction before hiding the system UI.
-     */
-    private static final int AUTO_HIDE_DELAY_MILLIS = 3000;
-
-    /**
-     * If set, will toggle the system UI visibility upon interaction. Otherwise,
-     * will show the system UI visibility upon interaction.
-     */
-    private static final boolean TOGGLE_ON_CLICK = true;
-
-    /**
-     * The flags to pass to {@link SystemUiHider#getInstance}.
-     */
-    private static final int HIDER_FLAGS = SystemUiHider.FLAG_HIDE_NAVIGATION;
-
-    /**
-     * The instance of the {@link SystemUiHider} for this activity.
-     */
-    private SystemUiHider mSystemUiHider;
-
-    
-    /*
-     * Varibles declair for full camera control. 
-     */
     SurfaceView sView;  
     SurfaceHolder surfaceHodler;  
     int screenWidth, screenHeight;  
-    Camera camera;  // 定义系统所用的照相机  
+    Camera camera;  // 定义系统所用的照相机 
     boolean isPreview = false; // 是否存在预览中  
     //*** End. ***
-    
-    
+            
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Remove title bar
+        //this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
+        //set content view AFTER ABOVE sequence (to avoid crash)
         setContentView(R.layout.activity_camera);
+        StereoGIF = (StereoGIF) getApplication();
 
+       
         //OnClick Next
+        
         Button nextButton = (Button) findViewById(R.id.button_next);
         nextButton.setOnClickListener(new OnClickListener() {
             
             @Override
             public void onClick(View arg0) {
-                StereoGIF.setPhotoPaths("a");
-                Toast.makeText(CameraActivity.this, "kakakakak", Toast.LENGTH_LONG).show();
+                Intent photoSelectionIntent = new Intent(CameraActivity.this, PhotoSelection.class);
+                startActivity(photoSelectionIntent);
                 
+
             }
         });
-
+        
+       
+        
         // Upon interacting with UI controls, delay any scheduled hide()
         // operations to prevent the jarring behavior of controls going away
         // while interacting with the UI.
-        findViewById(R.id.button_capture).setOnClickListener(mDummyButtonOnClickListener);
         
+        
+
         //dispatchTakePictureIntent();
         
         
@@ -125,8 +103,6 @@ public class CameraActivity extends Activity {
         screenWidth = metrics.widthPixels;  
         screenHeight = metrics.heightPixels;  
         sView = (SurfaceView) findViewById(R.id.sView);  
-        // 设置surface不需要自己的维护缓存区  
-        sView.getHolder().setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);  
         // 获得SurfaceView的SurfaceHolder  
         surfaceHodler = sView.getHolder();  
         // 为srfaceHolder添加一个回调监听器  
@@ -156,12 +132,34 @@ public class CameraActivity extends Activity {
             }  
         });  
         //end;
+
+
+        findViewById(R.id.dummy_button).setOnClickListener(new OnClickListener( ) {
+            
+            @Override
+            public void onClick(View arg0) {
+                if (camera != null){
+                    capture(sView);
+                }
+                
+            }
+        });
+        
+        sView.setOnClickListener(new OnClickListener() {
+            
+            @Override
+            public void onClick(View v) {
+                if (camera != null){
+                    camera.autoFocus(null);
+                }
+                
+            }
+        });
         
         
     }
     
-    
-    //Code for full control of camera
+  //Code for full control of camera
     private void initCamera() {  
         if (!isPreview) {  
             // 此处默认打开后置摄像头  
@@ -248,11 +246,13 @@ public class CameraActivity extends Activity {
             String imageFileName = "JPEG_" + timeStamp + "_";
             final String filePathString = Environment  
                     .getExternalStorageDirectory()  
-                    + "/"  
+                    + "/StereoGIF/"  
                     + imageFileName  
                     + ".jpg";
+            
+            
             textPathTextView.setText(filePathString);
-            final TextView photoCountTextView = (TextView) findViewById(R.id.textView_photoCount);
+            
             show.setImageBitmap(caputBitmap);
             
             new AlertDialog.Builder(CameraActivity.this)
@@ -272,86 +272,21 @@ public class CameraActivity extends Activity {
                                     //把位图输出到指定的文件中  
                                     caputBitmap.compress(CompressFormat.JPEG, 100, fileOutStream);  
                                     fileOutStream.close();  
-                                    StereoGIF.setPhotoPaths(filePathString);
-                                    photoCount += 1;
-                                    photoCountTextView.setText(Integer.toString(photoCount));
+                                    
                                     
                                 } catch (IOException io) {  
                                     io.printStackTrace();  
                                 }  
-                                
+                                StereoGIF.addPhotoPath(filePathString);
                             }
                         }).show();
             camera.stopPreview();  
             camera.startPreview();  
             isPreview=true;  
-            /*
-            // 加载布局文件  
-             
-            // 获取saveDialog对话框上的ImageView组件  
-            ImageView show = (ImageView) saveDialog.findViewById(R.id.show);  
-            // 显示刚刚拍得的照片  
-            show.setImageBitmap(bm);  
-            // 使用AlertDialog组件  
-            new AlertDialog.Builder(CameraActivity.this)  
-                    .setView(saveDialog)  
-                    .setNegativeButton("取消", null)  
-                    .setPositiveButton("保存",  
-                            new DialogInterface.OnClickListener() {  
-                                @Override  
-                                public void onClick(DialogInterface arg0,  
-                                        int arg1) {  
-                                    // 创建一个位于SD卡上的文件  
-                                    File file = new File(Environment  
-                                            .getExternalStorageDirectory()  
-                                            + "/"  
-                                            + potoName.getText().toString()  
-                                            + ".jpg");  
-                                    FileOutputStream  fileOutStream=null;  
-                                    try {  
-                                        fileOutStream=new FileOutputStream(file);  
-                                        //把位图输出到指定的文件中  
-                                        bm.compress(CompressFormat.JPEG, 100, fileOutStream);  
-                                        fileOutStream.close();  
-                                    } catch (IOException io) {  
-                                        io.printStackTrace();  
-                                    }  
-  
-                                }  
-                            }).show();  
-            //重新浏览  
-            camera.stopPreview();  
-            camera.startPreview();  
-            isPreview=true;  
-            */
         }  
         
     };  
     //end;
-
- 
-    
-    //OnClick DummyButton
-    View.OnClickListener mDummyButtonOnClickListener = new View.OnClickListener() {
-        
-        @Override
-        public void onClick(View v) {
-            
-            //showImage();
-            capture(sView);
-        }
-    };
-
-    
-
     
     
-    
-
-
-    
-    
-    
-    
-
 }

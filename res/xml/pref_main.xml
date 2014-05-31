@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    <PreferenceCategory android:title="@string/pref_GIF_settings" android:key="pref_GIF_cat">
+        <EditTextPreference 
+            android:title="@string/pref_GIF_delay" 
+            android:dialogTitle="@string/pref_GIF_delay_title" 
+            android:dialogMessage="@string/pref_GIF_delay_desc"
+            android:inputType="numberDecimal"
+            android:maxLines="1"
+            android:selectAllOnFocus="true" android:key="pref_GIF_delay" android:defaultValue="100"/>
+        <ListPreference 
+            android:title="@string/pref_GIF_quality_name" 
+            android:entries="@array/pref_GIF_quality_list_titles" 
+            android:dialogTitle="@string/pref_GIF_quality_name" 
+            android:entryValues="@array/pref_GIF_quality_list_values" 
+            android:negativeButtonText="@null" 
+            android:positiveButtonText="@null" 
+            android:key="pref_GIF_quallity" 
+            android:defaultValue="512"/>
+        <ListPreference 
+            android:title="@string/pref_GIF_size" 
+            android:entries="@array/pref_GIF_size_titles" 
+            android:dialogTitle="@string/pref_GIF_size" 
+            android:entryValues="@array/pref_GIF_size_values" 
+            android:negativeButtonText="@null" 
+            android:positiveButtonText="@null" 
+            android:key="pref_GIF_size" 
+            android:defaultValue="1"/>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/pref_credits" android:key="pref_credits">
+        <Preference 
+            android:key="pref_team" 
+            android:title="@string/pref_credits_team" 
+            android:summary="@string/pref_credits_team_desc"/>
+        <Preference 
+            android:key="pref_eana" 
+            android:title="@string/pref_credits_eana" 
+            android:summary="@string/pref_credits_eana_desc">
+            <intent android:action="android.intent.action.VIEW"
+            android:data="http://www.1a23.com" />
+        </Preference>
+        <Preference 
+            android:key="pref_mint"  
+            android:title="@string/pref_credits_mint" 
+            android:summary="@string/pref_credits_mint_desc"/>
+        <Preference 
+            android:key="pref_zach" 
+            android:title="@string/pref_credits_zach" 
+            android:summary="@string/pref_credits_zach_desc"/>
+        <Preference 
+            android:key="pref_sq" 
+            android:title="@string/pref_credits_sq" 
+            android:summary="@string/pref_credits_sq_desc"/>
+        <Preference 
+            android:key="pref_bry"  
+            android:title="@string/pref_credits_bry" 
+            android:summary="@string/pref_credits_bry_desc"/>
+    </PreferenceCategory>
+    
+
+</PreferenceScreen>

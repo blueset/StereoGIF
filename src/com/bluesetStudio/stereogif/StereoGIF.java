@@ -1,26 +1,28 @@
 package com.bluesetStudio.stereogif;
 
-import android.R.string;
 import android.app.Application;
+import android.util.Log;
+
+import java.util.ArrayList;
 
 public class StereoGIF extends Application {
-    private int photoCount;
-    private String[] photoPath;
-    
+    private int photoCount = 0;
+    private ArrayList<String> photoPath = new ArrayList<String>();
+    private static final String E_TAG = "globalVar";  
     public int getPhotoCount(){
         return photoCount;
     }
     
-    public void setPhotoSount(int p){
+    public void setPhotoCount(int p){
         photoCount = p;
     }
     
     public String[] getPhotoPath(){
-        return photoPath;
+        return (String[])photoPath.toArray(new String[photoPath.size()]);
     }
     
     public String getPhotoPath(int i){
-        return photoPath[i];
+        return (String)photoPath.get(i);
     }
     
     /**
@@ -29,20 +31,34 @@ public class StereoGIF extends Application {
      * @param i The id of photoPath array
      */
     public void setPhotoPaths(String path, int i){
-        photoPath[i] = path;  
+        if (i < photoPath.size()){
+            photoPath.set(i, path);
+        } else {
+          addPhotoPath (path);  
+        }
     }
     
     /**
      * Set photoPath as new item.
      * @param path Path string.
      */
-    public void setPhotoPaths(String path){
-        photoPath[photoPath.length] = path;
+    public void addPhotoPath(String path){
+        photoPath.add(path);
+        Log.v(E_TAG, path+" is added to the paths.");
     }
-    
+    /**
+     * Get the size of photoPath
+     * @return Size of photoPath
+     */
+    public int getPhotoPathCount(){
+        return photoPath.size();
+    }
+    public void clearPhotoPath(){
+        photoPath.clear();
+    }
     @Override
     public void onCreate(){
         super.onCreate();
-        setPhotoSount(0);
+        setPhotoCount(0);
     }
 }
