@@ -75,7 +75,7 @@ public class GifView extends ImageView implements GifAction{
         super(context);
         this.context = context;
         //gifDecoder = new GifDecoder(this);
-        setScaleType(ImageView.ScaleType.FIT_XY);
+        setScaleType(ImageView.ScaleType.FIT_CENTER);
     }
     
     public GifView(Context context, AttributeSet attrs) {
@@ -88,7 +88,7 @@ public class GifView extends ImageView implements GifAction{
         this.context = context;
        // TypedArray a = context.obtainStyledAttributes(attrs,R.array.);
         //gifDecoder = new GifDecoder(this);
-        setScaleType(ImageView.ScaleType.FIT_XY);
+        setScaleType(ImageView.ScaleType.FIT_CENTER);
     }
     
     /**
