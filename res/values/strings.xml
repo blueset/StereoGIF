@@ -6,7 +6,7 @@
     a. string names are divided to 2 sections: control type & name;
         a.1. Control type may include button, text (textView), action (menu), etc.
         a.2. "Name" follows underscore seperation naming, i.e. file_size, camera_prompt, etc.
-    b. To be contiuned.
+    b. To be contiuned.
     -->
 
 
@@ -26,18 +26,17 @@
     <string name="action_exit">Exit</string>
     <string name="button_capture">Capture</string>
     <string name="button_discard">Discard</string>
-
-    <!-- Title Bars -->
-    <string name="title_preview">Preview</string>
-    <string name="title_selectedGIFs">Selected GIFs</string>
+    <string name="button_share">Share</string>
 
     <!-- Messages -->
     <string name="text_file_size">Proceeding with creating the GIF will result in a large file. Do you wish to continue?</string>
     <string name="text_frame_selection_info">Swipe to select frames. Tap both to run through automatically.</string>
-    <string name="text_welcome">Welcome to StereoGIF! Tap the camera circles to begin.</string>
+    <string name="text_welcome">Welcome to StereoGIF!\nTap the camera circles to begin.</string>
     <string name="text_camera_prompt">Shift your camera slightly to the right, rotating it slightly to the left.</string>
     <string name="text_frame_adjust_prompt">Swipe up or down to adjust the value.</string>
     <string name="text_under_developement">This function is currently under development.</string>
+    <string name="text_gif_done_line1">Congratulations!</string>
+    <string name="text_gif_done_line2">You have made your own GIF!</string>
 
     <!-- Miscellaneous -->
     <string name="hello_world">Hello world!</string>
@@ -46,22 +45,25 @@
 
     <!-- Image Captions -->
     <string name="contentDescription_picturePreview">Photo Preview</string>
-    
+
     <!-- Popups -->
     <string name="popup_discard_title">Do you want to discard?</string>
     <string name="popup_discard_message">All photos will be discarded. \nThis cannot be undone.</string>
-    
+    <string name="popup_share_title">Share with…</string>
+
     <!-- Error Message -->
     <string name="error_get_GIF_size">"Failed loading GIF size, loading it as medium size.</string>
-    
+
     <!-- Progress box -->
     <string name="progress_loading_image">Loading Image…</string>
-	<string name="progress_generating_GIF">Generating GIF…</string>
-	<string name="progress_saving_GIF">Saving GIF…</string>    
-    
+    <string name="progress_generating_GIF">Generating GIF…</string>
+    <string name="progress_saving_GIF">Saving GIF…</string>
+
+	<!-- Title Bars -->
+    <string name="title_preview">Preview</string>
+    <string name="title_selectedGIFs">Selected GIFs</string>
     <string name="title_activity_photo_by_intent">PhotoByIntent</string>
     <string name="title_activity_photo_selection">Select your photo</string>
-    
-    
-
+    <string name="title_activity_gifpreview">GIF Preview</string>
+    <string name="title_activity_settings">Settings</string>
 </resources>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <TextView 
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content"
+        android:text="@string/text_gif_done_line1"
+        android:gravity="center"
+        android:paddingTop="10dp"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textColor="@color/holo_blue_dark"
+        />
+    <TextView 
+        android:id="@+id/textView_Gif_path"
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content"
+        android:text="@string/text_gif_done_line2"
+        android:gravity="center"
+        android:paddingBottom="10dp"
+        />
+
+    
+    <com.bluesetStudio.stereogif.GifView
+        android:id="@+id/gifView_gif_preview"
+        android:layout_width="match_parent" 
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:scaleType="fitCenter"
+        android:layout_weight="20"
+        />
+
+    <Button
+        android:id="@+id/button_share"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_share" 
+        android:layout_weight="1"/>
+    
+</LinearLayout>

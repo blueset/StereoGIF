@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    <PreferenceCategory 
+        android:key="pref_camera_cat" 
+        android:title="@string/pref_camera">
+        <CheckBoxPreference 
+            android:summary="@string/pref_camera_rotate_desc" 
+            android:key="pref_camera_rotate" 
+            android:title="@string/pref_camera_rotate" 
+            android:defaultValue="true"/>
+    </PreferenceCategory>
     <PreferenceCategory android:title="@string/pref_GIF_settings" android:key="pref_GIF_cat">
         <EditTextPreference 
             android:title="@string/pref_GIF_delay" 
@@ -58,6 +67,7 @@
             android:title="@string/pref_credits_bry" 
             android:summary="@string/pref_credits_bry_desc"/>
     </PreferenceCategory>
+    
     
 
 </PreferenceScreen>

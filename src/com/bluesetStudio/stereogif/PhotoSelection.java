@@ -3,6 +3,7 @@ package com.bluesetStudio.stereogif;
 import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -152,6 +153,7 @@ public class PhotoSelection extends Activity {
             AnimatedGifEncoder encoder = new AnimatedGifEncoder();
             encoder.setDelay(Integer.parseInt(sharedPreferences.getString("pref_GIF_delay", "100")));
             encoder.setQuality(Integer.parseInt(sharedPreferences.getString("pref_GIF_quality", "256")));
+            encoder.setRepeat(0);
             
             encoder.start(bos);
             for (Bitmap bitmap : bitmaps) {
@@ -202,6 +204,8 @@ public class PhotoSelection extends Activity {
             }
             Log.v(E_TAG,"postExeDone");
             Toast.makeText(getApplicationContext(), "Created GIF: "+filePathString, Toast.LENGTH_LONG).show();
+            Intent GIFpreviewIntent = new Intent(PhotoSelection.this, GIFPreview.class);
+            startActivity(GIFpreviewIntent);
         }
         
 

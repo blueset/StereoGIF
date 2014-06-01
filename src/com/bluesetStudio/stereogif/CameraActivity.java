@@ -6,16 +6,19 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
 import android.graphics.BitmapFactory;
 import android.graphics.ImageFormat;
+import android.graphics.Matrix;
 import android.hardware.Camera;
 import android.hardware.Camera.AutoFocusCallback;
 import android.hardware.Camera.PictureCallback;
 import android.hardware.Camera.ShutterCallback;
 import android.os.Bundle;
 import android.os.Environment;
+import android.preference.PreferenceManager;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
@@ -24,6 +27,7 @@ import android.view.SurfaceHolder.Callback;
 import android.view.SurfaceView;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -62,7 +66,7 @@ public class CameraActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //Remove title bar
-        //this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         //set content view AFTER ABOVE sequence (to avoid crash)
         setContentView(R.layout.activity_camera);
@@ -234,15 +238,27 @@ public class CameraActivity extends Activity {
         public void onPictureTaken(byte[] data, Camera camera) {  
             
             // 根据拍照所得的数据创建位图  
-            final Bitmap caputBitmap = BitmapFactory.decodeByteArray(data, 0,  
+            Bitmap caputBitmap = BitmapFactory.decodeByteArray(data, 0,  
                     data.length);  
             //ImageView previewView = (ImageView) findViewById(R.id.imageView_preview);
             //previewView.setImageBitmap(caputBitmap);
             //previewView.setVisibility(View.VISIBLE);
+            SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+            if(sharedPreferences.getBoolean("pref_camera_rotate", true)){
+                Matrix matrix = new Matrix(); 
+                matrix.postRotate(90);  
+                Bitmap resizedBitmap = Bitmap.createBitmap(caputBitmap, 0, 0, 
+                        caputBitmap.getWidth(), caputBitmap.getHeight(), matrix, true); 
+                caputBitmap = resizedBitmap;
+            }
+            final Bitmap finalBitmap = caputBitmap;
+              
+
             
             final View saveDialog = getLayoutInflater().inflate(R.layout.dialog_photo_confirm, null);  
             ImageView show = (ImageView) saveDialog.findViewById(R.id.imageView_previewDiag);
             TextView textPathTextView = (TextView) saveDialog.findViewById(R.id.TextViewFileLocation);
+            final TextView photoCountTextView = (TextView) findViewById(R.id.textView_photoCount);
             
             String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
             String imageFileName = "JPEG_" + timeStamp + "_";
@@ -272,13 +288,15 @@ public class CameraActivity extends Activity {
                                 try {  
                                     fileOutStream=new FileOutputStream(file);  
                                     //把位图输出到指定的文件中  
-                                    caputBitmap.compress(CompressFormat.JPEG, 100, fileOutStream);  
+                                    finalBitmap.compress(CompressFormat.JPEG, 100, fileOutStream);  
                                     fileOutStream.close();  
                                     
                                     
                                 } catch (IOException io) {  
                                     io.printStackTrace();  
                                 }  
+                                photoCount += 1;
+                                photoCountTextView.setText(Integer.toString(photoCount));
                                 StereoGIF.addPhotoPath(filePathString);
                             }
                         }).show();
