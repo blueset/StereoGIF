@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.io.File;
 import java.io.IOException;
@@ -34,6 +35,17 @@ public class GIFPreview extends Activity {
             e.printStackTrace();
         }
         
+        //if isGallery
+        Intent intent = getIntent();  
+        boolean isGallery = intent.getBooleanExtra("isGallery", false); 
+        if(isGallery){
+            TextView tempTextView = (TextView) findViewById(R.id.textView_gif_preview_l1);
+            tempTextView.setText(R.string.text_gif_preview);
+            tempTextView = (TextView) findViewById(R.id.textView_gif_preview_l2);
+            tempTextView.setText(getString(R.id.textView_gif_preview_l2)+gifPathString);
+        }
+        
+        //Share.onClick
         Button shareButton = (Button) findViewById(R.id.button_share);
         shareButton.setOnClickListener(new OnClickListener() {
             

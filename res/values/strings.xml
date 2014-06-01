@@ -6,7 +6,7 @@
     a. string names are divided to 2 sections: control type & name;
         a.1. Control type may include button, text (textView), action (menu), etc.
         a.2. "Name" follows underscore seperation naming, i.e. file_size, camera_prompt, etc.
-    b. To be contiuned.
+    b. To be contiuned.
     -->
 
 
@@ -37,6 +37,8 @@
     <string name="text_under_developement">This function is currently under development.</string>
     <string name="text_gif_done_line1">Congratulations!</string>
     <string name="text_gif_done_line2">You have made your own GIF!</string>
+    <string name="text_gif_preview">GIF preview</string>
+    <string name="text_gif_preview_desc">File path: </string>
 
     <!-- Miscellaneous -->
     <string name="hello_world">Hello world!</string>
@@ -59,11 +61,13 @@
     <string name="progress_generating_GIF">Generating GIF…</string>
     <string name="progress_saving_GIF">Saving GIF…</string>
 
-	<!-- Title Bars -->
+    <!-- Title Bars -->
     <string name="title_preview">Preview</string>
     <string name="title_selectedGIFs">Selected GIFs</string>
     <string name="title_activity_photo_by_intent">PhotoByIntent</string>
-    <string name="title_activity_photo_selection">Select your photo</string>
+    <string name="title_activity_photo_selection">Photo Confirmation</string>
     <string name="title_activity_gifpreview">GIF Preview</string>
     <string name="title_activity_settings">Settings</string>
+    <string name="title_activity_gallery">Gallery</string>
+
 </resources>

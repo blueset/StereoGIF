@@ -46,7 +46,8 @@ public class MainActivity extends Activity {
             
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, R.string.text_under_developement, Toast.LENGTH_SHORT).show();
+                Intent galleryIntent = new Intent(MainActivity.this, GalleryActivity.class);
+                startActivity(galleryIntent);
             }
         });
         

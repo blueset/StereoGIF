@@ -5,6 +5,7 @@
     android:orientation="vertical" >
     
     <TextView 
+        android:id="@+id/textView_gif_preview_l1"
         android:layout_width="match_parent" 
         android:layout_height="wrap_content"
         android:text="@string/text_gif_done_line1"
@@ -15,7 +16,7 @@
         android:textColor="@color/holo_blue_dark"
         />
     <TextView 
-        android:id="@+id/textView_Gif_path"
+        android:id="@+id/textView_gif_preview_l2"
         android:layout_width="match_parent" 
         android:layout_height="wrap_content"
         android:text="@string/text_gif_done_line2"

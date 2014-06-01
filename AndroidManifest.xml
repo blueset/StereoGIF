@@ -49,6 +49,10 @@
             android:name="com.bluesetStudio.stereogif.GIFPreview"
             android:label="@string/title_activity_gifpreview" >
         </activity>
+        <activity
+            android:name="com.bluesetStudio.stereogif.GalleryActivity"
+            android:label="@string/title_activity_gallery" >
+        </activity>
     </application>
 
 </manifest>

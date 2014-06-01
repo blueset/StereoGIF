@@ -72,6 +72,8 @@ public class PhotoSelection extends Activity {
         return true;
     }
     
+    
+    
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle presses on the action bar items
@@ -81,6 +83,9 @@ public class PhotoSelection extends Activity {
                 return true;
             case R.id.photoSelectAB_item_next:
                 generateGIF();
+                return true;
+            case R.id.photoSelectAB_item_Settings:
+                startIntentSettings();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -104,6 +109,10 @@ public class PhotoSelection extends Activity {
         gifGenerateTask.execute(photoStrings);
     }
     
+    private void startIntentSettings(){
+        Intent settingsIntent = new Intent(PhotoSelection.this,SettingsActivity.class);
+        startActivity(settingsIntent);
+    }
     class GIFGenerateTask extends AsyncTask<String[], String, byte[]>{
 
         @Override

@@ -2,11 +2,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f0f0f0"
-    tools:context=".MainActivity" >
- 
+    tools:context=".GalleryActivity" >
+
     <GridView
-        android:id="@+id/gridView"
+        android:id="@+id/gridView_gallery"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
@@ -15,9 +14,16 @@
         android:numColumns="auto_fit"
         android:verticalSpacing="5dp"
         android:drawSelectorOnTop="true"
-        android:stretchMode="columnWidth" >
+        android:stretchMode="columnWidth"
+        android:visibility="invisible" >
     </GridView>
 
+    <ProgressBar
+        android:id="@+id/progressBar_gallery"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" />
 
- 
 </RelativeLayout>
