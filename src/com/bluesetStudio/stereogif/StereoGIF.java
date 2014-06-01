@@ -8,7 +8,9 @@ import java.util.ArrayList;
 public class StereoGIF extends Application {
     private int photoCount = 0;
     private ArrayList<String> photoPath = new ArrayList<String>();
+    private String GIFpathString;
     private static final String E_TAG = "globalVar";  
+    
     public int getPhotoCount(){
         return photoCount;
     }
@@ -56,9 +58,23 @@ public class StereoGIF extends Application {
     public void clearPhotoPath(){
         photoPath.clear();
     }
+    
+    
+    public String getGIFPath(){
+        return GIFpathString;
+    }
+    
+    public void setGIFPath(String path){
+        GIFpathString = path;
+    }
+    
+    public void clearGIFPath(){
+        GIFpathString = "";
+    }
     @Override
     public void onCreate(){
         super.onCreate();
         setPhotoCount(0);
     }
+    
 }

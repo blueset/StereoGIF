@@ -17,6 +17,7 @@ import android.hardware.Camera.ShutterCallback;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Display;
 import android.view.SurfaceHolder;
 import android.view.SurfaceHolder.Callback;
@@ -76,6 +77,7 @@ public class CameraActivity extends Activity {
             @Override
             public void onClick(View arg0) {
                 Intent photoSelectionIntent = new Intent(CameraActivity.this, PhotoSelection.class);
+                Log.v(mTAG,"I'm here for the next activity");
                 startActivity(photoSelectionIntent);
                 
 

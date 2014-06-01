@@ -91,7 +91,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     String File Naming Convention
     a. string names are divided to 2 sections: control type & name;
         a.1. Control type may include button, text (textView), action (menu), etc.
-        a.2. "Name" follows camel naming, i.e. fileSize, cameraPrmpt, etc.
+        a.2. "Name" follows underscore seperation naming, i.e. file_size, camera_prompt, etc.
     b. To be contiuned.
 
 
@@ -109,11 +109,15 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         /**  Buttons 
          */
         public static final int button_shot=0x7f070002;
+        public static final int button_up=0x7f070008;
         /**  Image Captions 
          */
         public static final int contentDescription_picturePreview=0x7f070018;
         public static final int dummy_button=0x7f070017;
         public static final int dummy_content=0x7f070016;
+        /**  Error Message 
+         */
+        public static final int error_get_GIF_size=0x7f07001b;
         /**  Miscellaneous 
          */
         public static final int hello_world=0x7f070015;
@@ -121,63 +125,67 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         /**  Popups 
          */
         public static final int popup_discard_title=0x7f070019;
-        public static final int pref_GIF_delay=0x7f07002d;
-        public static final int pref_GIF_delay_desc=0x7f07002f;
-        public static final int pref_GIF_delay_title=0x7f07002e;
-        public static final int pref_GIF_quality_name=0x7f070030;
-        public static final int pref_GIF_settings=0x7f07002c;
-        public static final int pref_GIF_size=0x7f070031;
-        public static final int pref_credits=0x7f070032;
-        public static final int pref_credits_bry=0x7f07003d;
-        public static final int pref_credits_bry_desc=0x7f07003e;
-        public static final int pref_credits_eana=0x7f070035;
-        public static final int pref_credits_eana_desc=0x7f070036;
-        public static final int pref_credits_mint=0x7f070037;
-        public static final int pref_credits_mint_desc=0x7f070038;
-        public static final int pref_credits_sq=0x7f07003b;
-        public static final int pref_credits_sq_desc=0x7f07003c;
-        public static final int pref_credits_team=0x7f070033;
-        public static final int pref_credits_team_desc=0x7f070034;
-        public static final int pref_credits_zach=0x7f070039;
-        public static final int pref_credits_zach_desc=0x7f07003a;
-        public static final int pref_default_display_name=0x7f070022;
-        public static final int pref_description_social_recommendations=0x7f070020;
+        public static final int pref_GIF_delay=0x7f070031;
+        public static final int pref_GIF_delay_desc=0x7f070033;
+        public static final int pref_GIF_delay_title=0x7f070032;
+        public static final int pref_GIF_quality_name=0x7f070034;
+        public static final int pref_GIF_settings=0x7f070030;
+        public static final int pref_GIF_size=0x7f070035;
+        public static final int pref_credits=0x7f070036;
+        public static final int pref_credits_bry=0x7f070041;
+        public static final int pref_credits_bry_desc=0x7f070042;
+        public static final int pref_credits_eana=0x7f070039;
+        public static final int pref_credits_eana_desc=0x7f07003a;
+        public static final int pref_credits_mint=0x7f07003b;
+        public static final int pref_credits_mint_desc=0x7f07003c;
+        public static final int pref_credits_sq=0x7f07003f;
+        public static final int pref_credits_sq_desc=0x7f070040;
+        public static final int pref_credits_team=0x7f070037;
+        public static final int pref_credits_team_desc=0x7f070038;
+        public static final int pref_credits_zach=0x7f07003d;
+        public static final int pref_credits_zach_desc=0x7f07003e;
+        public static final int pref_default_display_name=0x7f070026;
+        public static final int pref_description_social_recommendations=0x7f070024;
         /**  Example settings for Data & Sync 
          */
-        public static final int pref_header_data_sync=0x7f070024;
+        public static final int pref_header_data_sync=0x7f070028;
         /**  Strings related to Settings 
  Example General settings 
          */
-        public static final int pref_header_general=0x7f07001e;
+        public static final int pref_header_general=0x7f070022;
         /**  Example settings for Notifications 
          */
-        public static final int pref_header_notifications=0x7f070027;
-        public static final int pref_ringtone_silent=0x7f07002a;
-        public static final int pref_title_add_friends_to_messages=0x7f070023;
-        public static final int pref_title_display_name=0x7f070021;
-        public static final int pref_title_new_message_notifications=0x7f070028;
-        public static final int pref_title_ringtone=0x7f070029;
-        public static final int pref_title_social_recommendations=0x7f07001f;
-        public static final int pref_title_sync_frequency=0x7f070025;
-        public static final int pref_title_system_sync_settings=0x7f070026;
-        public static final int pref_title_vibrate=0x7f07002b;
-        public static final int text_cameraPrompt=0x7f070012;
+        public static final int pref_header_notifications=0x7f07002b;
+        public static final int pref_ringtone_silent=0x7f07002e;
+        public static final int pref_title_add_friends_to_messages=0x7f070027;
+        public static final int pref_title_display_name=0x7f070025;
+        public static final int pref_title_new_message_notifications=0x7f07002c;
+        public static final int pref_title_ringtone=0x7f07002d;
+        public static final int pref_title_social_recommendations=0x7f070023;
+        public static final int pref_title_sync_frequency=0x7f070029;
+        public static final int pref_title_system_sync_settings=0x7f07002a;
+        public static final int pref_title_vibrate=0x7f07002f;
+        public static final int progress_generating_GIF=0x7f07001d;
+        /**  Progress box 
+         */
+        public static final int progress_loading_image=0x7f07001c;
+        public static final int progress_saving_GIF=0x7f07001e;
+        public static final int text_camera_prompt=0x7f070012;
         /**  Messages 
          */
-        public static final int text_filesize=0x7f07000f;
-        public static final int text_frameAdjustPrompt=0x7f070013;
-        public static final int text_frameSelectionInfo=0x7f070010;
-        public static final int text_underDevelopement=0x7f070014;
+        public static final int text_file_size=0x7f07000f;
+        public static final int text_frame_adjust_prompt=0x7f070013;
+        public static final int text_frame_selection_info=0x7f070010;
+        public static final int text_under_developement=0x7f070014;
         public static final int text_welcome=0x7f070011;
         public static final int title_activity_camera=0x7f070001;
-        public static final int title_activity_photo_by_intent=0x7f07001b;
-        public static final int title_activity_photo_selection=0x7f07001c;
-        public static final int title_activity_settings=0x7f07001d;
+        public static final int title_activity_photo_by_intent=0x7f07001f;
+        public static final int title_activity_photo_selection=0x7f070020;
+        public static final int title_activity_settings=0x7f070021;
         /**  Title Bars 
          */
         public static final int title_preview=0x7f07000d;
         public static final int title_selectedGIFs=0x7f07000e;
-        public static final int up=0x7f070008;
     }
     public static final class style {
         /** 

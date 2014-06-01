@@ -5,9 +5,11 @@
             android:title="@string/pref_GIF_delay" 
             android:dialogTitle="@string/pref_GIF_delay_title" 
             android:dialogMessage="@string/pref_GIF_delay_desc"
-            android:inputType="numberDecimal"
+            android:inputType="number"
             android:maxLines="1"
-            android:selectAllOnFocus="true" android:key="pref_GIF_delay" android:defaultValue="100"/>
+            android:selectAllOnFocus="true" 
+            android:key="pref_GIF_delay" 
+            android:defaultValue="100"/>
         <ListPreference 
             android:title="@string/pref_GIF_quality_name" 
             android:entries="@array/pref_GIF_quality_list_titles" 
@@ -15,8 +17,8 @@
             android:entryValues="@array/pref_GIF_quality_list_values" 
             android:negativeButtonText="@null" 
             android:positiveButtonText="@null" 
-            android:key="pref_GIF_quallity" 
-            android:defaultValue="512"/>
+            android:key="pref_GIF_quality" 
+            android:defaultValue="256"/>
         <ListPreference 
             android:title="@string/pref_GIF_size" 
             android:entries="@array/pref_GIF_size_titles" 
