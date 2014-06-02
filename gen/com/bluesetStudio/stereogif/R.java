@@ -43,7 +43,28 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     }
     public static final class drawable {
         public static final int button_buttombar=0x7f020000;
-        public static final int ic_launcher=0x7f020001;
+        public static final int button_camera_activity=0x7f020001;
+        public static final int button_capture=0x7f020002;
+        public static final int button_capture_normal=0x7f020003;
+        public static final int button_capture_pressed=0x7f020004;
+        public static final int button_cross=0x7f020005;
+        public static final int button_gallery=0x7f020006;
+        public static final int button_plus=0x7f020007;
+        public static final int button_tick=0x7f020008;
+        public static final int camera_activity_button=0x7f020009;
+        public static final int camera_activity_button_pressed=0x7f02000a;
+        public static final int first_image_capture=0x7f02000b;
+        public static final int gallery_button_normal=0x7f02000c;
+        public static final int gallery_button_pressed=0x7f02000d;
+        public static final int green_tick_button_normal=0x7f02000e;
+        public static final int green_tick_button_pressed=0x7f02000f;
+        public static final int ic_launcher=0x7f020010;
+        public static final int plus_button_normal=0x7f020011;
+        public static final int plus_button_pressed=0x7f020012;
+        public static final int red_cross_button_normal=0x7f020013;
+        public static final int red_cross_button_pressed=0x7f020014;
+        public static final int second_image_capture=0x7f020015;
+        public static final int start_screen_background=0x7f020016;
     }
     public static final class id {
         public static final int TextViewFileLocation=0x7f0b0012;

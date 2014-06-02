@@ -48,9 +48,10 @@
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:gravity="center"
+                android:textSize="20sp"
                 android:text="0" />
             
-            <Button
+            <ImageButton
                 android:id="@+id/dummy_button"
                 style="?buttonBarButtonStyle"
                 android:layout_width="0dp"
@@ -58,8 +59,10 @@
                 android:scaleType="centerInside"
                 android:contentDescription="@string/button_capture"
                 android:text="@string/button_capture" 
-                android:layout_weight="0.9"/>
-<!-- android:src="@drawable/button_capture" -->
+                android:src="@drawable/button_capture"
+                android:layout_weight="0.9"
+                />
+
             <Button
                 android:id="@+id/button_next"
                 style="@style/ButtonBarButton"

@@ -2,9 +2,11 @@ package com.bluesetStudio.stereogif;
 
 import com.bluesetStudio.stereogif.util.SystemUiHider;
 
+import android.R.anim;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.DialogInterface.OnShowListener;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -12,6 +14,7 @@ import android.graphics.Bitmap.CompressFormat;
 import android.graphics.BitmapFactory;
 import android.graphics.ImageFormat;
 import android.graphics.Matrix;
+import android.graphics.drawable.Drawable;
 import android.hardware.Camera;
 import android.hardware.Camera.AutoFocusCallback;
 import android.hardware.Camera.PictureCallback;
@@ -29,6 +32,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.AnalogClock;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -273,7 +277,7 @@ public class CameraActivity extends Activity {
             
             show.setImageBitmap(caputBitmap);
             
-            new AlertDialog.Builder(CameraActivity.this)
+            final AlertDialog photoConfirmAlertDialog = new AlertDialog.Builder(CameraActivity.this)
                 .setView(saveDialog)
                 .setNegativeButton(R.string.button_cancel, null)
                 .setPositiveButton(R.string.button_save, 
@@ -299,7 +303,8 @@ public class CameraActivity extends Activity {
                                 photoCountTextView.setText(Integer.toString(photoCount));
                                 StereoGIF.addPhotoPath(filePathString);
                             }
-                        }).show();
+                        }).create();
+            photoConfirmAlertDialog.show();
             camera.stopPreview();  
             camera.startPreview();  
             isPreview=true;  
@@ -310,3 +315,4 @@ public class CameraActivity extends Activity {
     
     
 }
+
