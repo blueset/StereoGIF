@@ -2,11 +2,11 @@ package com.bluesetStudio.stereogif;
 
 import com.bluesetStudio.stereogif.util.SystemUiHider;
 
-import android.R.anim;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.FragmentTransaction;
+import android.content.Context;
 import android.content.DialogInterface;
-import android.content.DialogInterface.OnShowListener;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -14,8 +14,11 @@ import android.graphics.Bitmap.CompressFormat;
 import android.graphics.BitmapFactory;
 import android.graphics.ImageFormat;
 import android.graphics.Matrix;
-import android.graphics.drawable.Drawable;
 import android.hardware.Camera;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.hardware.Camera.AutoFocusCallback;
 import android.hardware.Camera.PictureCallback;
 import android.hardware.Camera.ShutterCallback;
@@ -28,14 +31,15 @@ import android.view.Display;
 import android.view.SurfaceHolder;
 import android.view.SurfaceHolder.Callback;
 import android.view.SurfaceView;
+import android.view.TextureView;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.AnalogClock;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -58,7 +62,13 @@ public class CameraActivity extends Activity {
     static final int REQUEST_IMAGE_CAPTURE = 1;
     
     private static String mTAG = "CameraActivity"; 
+    
+    private SensorManager mSensorManager;
+    private Sensor mSensor;
+    
+    private ImageView semiTransImageView;
 
+    private boolean isNewActivity = true;
     SurfaceView sView;  
     SurfaceHolder surfaceHodler;  
     int screenWidth, screenHeight;  
@@ -75,33 +85,76 @@ public class CameraActivity extends Activity {
         //set content view AFTER ABOVE sequence (to avoid crash)
         setContentView(R.layout.activity_camera);
         StereoGIF = (StereoGIF) getApplication();
-
-       
-        //OnClick Next
         
-        Button nextButton = (Button) findViewById(R.id.button_next);
-        nextButton.setOnClickListener(new OnClickListener() {
+        semiTransImageView = (ImageView) findViewById(R.id.imageView_semi_trans_preview);
+        //Assign sensors
+        /*
+        mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR);
+        
+        SensorEventListener mSensorEventListener = new SensorEventListener() {
             
             @Override
-            public void onClick(View arg0) {
-                Intent photoSelectionIntent = new Intent(CameraActivity.this, PhotoSelection.class);
-                Log.v(mTAG,"I'm here for the next activity");
-                startActivity(photoSelectionIntent);
+            public void onSensorChanged(SensorEvent event) {
+                //if(photoCount > 0){
+                if (true){
+                    float x = event.values[0];
+                    float y = event.values[1];
+                    float z = event.values[2];
+                    float a = event.values[3];
+                    
+                    double cosA = 2*Math.acos(a)/3.1415926535897932384626433832795028841971693993*180;
+                    double calcY = (y)/(Math.sin(cosA/2));
+                    
+                    TextView sensorInfoTextView = (TextView) findViewById(R.id.rotate_sensor_info);
+                    String text;
+                    text = getString(R.string.text_sensor_info);
+                    sensorInfoTextView.setText(String.format(text,a,cosA,y,calcY));
+                    
+                }
+            }
+            
+            @Override
+            public void onAccuracyChanged(Sensor sensor, int accuracy) {
+                // TODO Auto-generated method stub
                 
-
+            }
+        };
+        
+        mSensorManager.registerListener(mSensorEventListener, mSensor, SensorManager.SENSOR_DELAY_NORMAL);
+        */
+        
+        //OnClick photoCountNumber
+        final TextView photoCountTextView = (TextView) findViewById(R.id.textView_photoCount);
+        photoCountTextView.setOnClickListener(new OnClickListener() {
+            
+            @Override
+            public void onClick(View v) {
+                if (semiTransImageView.getVisibility() == View.VISIBLE){
+                    semiTransImageView.setVisibility(View.INVISIBLE);                    
+                }else{
+                    semiTransImageView.setVisibility(View.VISIBLE);
+                }
+                
             }
         });
         
-       
-        
-        // Upon interacting with UI controls, delay any scheduled hide()
-        // operations to prevent the jarring behavior of controls going away
-        // while interacting with the UI.
-        
-        
-
-        //dispatchTakePictureIntent();
-        
+        //OnClick Next
+        Button nextButton = (Button) findViewById(R.id.button_next);
+        nextButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                if (camera != null) {  
+                    if (isPreview)  
+                        camera.stopPreview();  
+                    camera.release();  
+                    camera = null;  
+                }  
+                isPreview = false;
+                Intent photoSelectionIntent = new Intent(CameraActivity.this, PhotoSelection.class);
+                startActivity(photoSelectionIntent);
+            }
+        });
         
         //Code for full control camera
         // 获取窗口管理器  
@@ -166,41 +219,15 @@ public class CameraActivity extends Activity {
             }
         });
         
+         
         
     }
     
   //Code for full control of camera
     private void initCamera() {  
-        if (!isPreview) {  
-            // 此处默认打开后置摄像头  
-            // 通过传入参数可以打开前置摄像头  
-            camera = Camera.open();  
-            camera.setDisplayOrientation(90);  
-        }  
-        if (!isPreview && camera != null) {  
-            Camera.Parameters parameters = camera.getParameters();  
-            // 设置预览照片的大小  
-            parameters.setPreviewSize(screenWidth, screenHeight);  
-            // 设置预览照片时每秒显示多少帧的最小值和最大值  
-            parameters.setPreviewFpsRange(4, 10);  
-            // 设置照片的格式  
-            parameters.setPictureFormat(ImageFormat.JPEG);
-            // 设置JPG照片的质量  
-            parameters.set("jpeg-quality", 85);  
-            // 设置照片的大小  
-            parameters.setPictureSize(screenWidth, screenHeight);  
-            // 通过SurfaceView显示取景画面  
-            try {  
-                camera.setPreviewDisplay(surfaceHodler);  
-            } catch (IOException e) {  
-                // TODO Auto-generated catch block  
-                e.printStackTrace();  
-            }  
-            // 开始预览  
-            camera.startPreview();  
-            isPreview = true;  
-        }  
+        
     }  
+    
     
     public void capture(View source) {  
         if (camera != null) {  
@@ -244,18 +271,22 @@ public class CameraActivity extends Activity {
             // 根据拍照所得的数据创建位图  
             Bitmap caputBitmap = BitmapFactory.decodeByteArray(data, 0,  
                     data.length);  
+            
             //ImageView previewView = (ImageView) findViewById(R.id.imageView_preview);
             //previewView.setImageBitmap(caputBitmap);
             //previewView.setVisibility(View.VISIBLE);
-            SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-            if(sharedPreferences.getBoolean("pref_camera_rotate", true)){
-                Matrix matrix = new Matrix(); 
-                matrix.postRotate(90);  
-                Bitmap resizedBitmap = Bitmap.createBitmap(caputBitmap, 0, 0, 
-                        caputBitmap.getWidth(), caputBitmap.getHeight(), matrix, true); 
-                caputBitmap = resizedBitmap;
-            }
+            
             final Bitmap finalBitmap = caputBitmap;
+            
+            final SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+            
+            Matrix matrix = new Matrix(); 
+            matrix.postRotate(90);  
+            final Bitmap rotatedBitmap = Bitmap.createBitmap(caputBitmap, 0, 0, 
+                        caputBitmap.getWidth(), caputBitmap.getHeight(), matrix, true);
+                
+             
+           
               
 
             
@@ -274,8 +305,12 @@ public class CameraActivity extends Activity {
             
             
             textPathTextView.setText(filePathString);
+            if(sharedPreferences.getBoolean("pref_camera_rotate", true)){
+                show.setImageBitmap(rotatedBitmap);
+            }else{
+                show.setImageBitmap(finalBitmap);
+            }
             
-            show.setImageBitmap(caputBitmap);
             
             final AlertDialog photoConfirmAlertDialog = new AlertDialog.Builder(CameraActivity.this)
                 .setView(saveDialog)
@@ -292,7 +327,11 @@ public class CameraActivity extends Activity {
                                 try {  
                                     fileOutStream=new FileOutputStream(file);  
                                     //把位图输出到指定的文件中  
-                                    finalBitmap.compress(CompressFormat.JPEG, 100, fileOutStream);  
+                                    if(sharedPreferences.getBoolean("pref_camera_rotate", true)){
+                                        rotatedBitmap.compress(CompressFormat.JPEG, 100, fileOutStream);
+                                    }else{
+                                        finalBitmap.compress(CompressFormat.JPEG, 100, fileOutStream);
+                                    } 
                                     fileOutStream.close();  
                                     
                                     
@@ -302,6 +341,9 @@ public class CameraActivity extends Activity {
                                 photoCount += 1;
                                 photoCountTextView.setText(Integer.toString(photoCount));
                                 StereoGIF.addPhotoPath(filePathString);
+                                semiTransImageView.setImageBitmap(rotatedBitmap);
+                                
+                                
                             }
                         }).create();
             photoConfirmAlertDialog.show();
@@ -313,6 +355,81 @@ public class CameraActivity extends Activity {
     };  
     //end;
     
+    @Override
+    public void onResume(){
+        
+        // open camera
+        camera = Camera.open();
+        camera.setDisplayOrientation(90); 
+
+        // init surface view
+        sView = (SurfaceView)this.findViewById(R.id.sView);
+                surfaceHodler = sView.getHolder(); 
+                surfaceHodler.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS); 
+                surfaceHodler.setSizeFromLayout();
+                surfaceHodler.addCallback(new Callback() {  
+                    
+                    @Override  
+                    public void surfaceDestroyed(SurfaceHolder arg0) {  
+                        // 如果camera不为null，释放摄像头  
+                        if (camera != null) {  
+                            if (isPreview)  
+                                camera.stopPreview();  
+                            camera.release();  
+                            camera = null;  
+                        }  
+                    }  
+          
+                    @Override  
+                    public void surfaceCreated(SurfaceHolder arg0) {  
+                        // 打开摄像头  
+                         
+          
+                    }  
+          
+                    @Override  
+                    public void surfaceChanged(SurfaceHolder arg0, int arg1, int arg2,  
+                            int arg3) {
+
+                        Camera.Parameters parameters = camera.getParameters();  
+                        // 设置预览照片的大小  
+                        parameters.setPreviewSize(screenWidth, screenHeight);  
+                        // 设置预览照片时每秒显示多少帧的最小值和最大值  
+                        parameters.setPreviewFpsRange(4, 10);  
+                        // 设置照片的格式  
+                        parameters.setPictureFormat(ImageFormat.JPEG);
+                        // 设置JPG照片的质量  
+                        parameters.set("jpeg-quality", 85);  
+                        // 设置照片的大小  
+                        parameters.setPictureSize(screenWidth, screenHeight);  
+                        // 通过SurfaceView显示取景画面  
+                        try {  
+                            camera.setPreviewDisplay(arg0);  
+                            Log.v(mTAG,"if2try");
+                        } catch (IOException e) {    
+                            e.printStackTrace();
+                            Log.v(mTAG,"if2catch");
+                        }  
+                        // 开始预览  
+                        camera.startPreview();  
+                        isPreview = true; 
+                        isNewActivity = false;
+                    }  
+                }); 
+        
+                
+        
+        super.onResume();
+    }
+    @Override  
+    public void onBackPressed() {  
+        DiscardDialogFragemnt discardDialogFragemnt = new DiscardDialogFragemnt();
+        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+        discardDialogFragemnt.show(fragmentTransaction, "discardPhotoPreview");
+        //super.onBackPressed();           
     
+    }
 }
+
 

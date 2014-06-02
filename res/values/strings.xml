@@ -39,6 +39,9 @@
     <string name="text_gif_done_line2">You have made your own GIF!</string>
     <string name="text_gif_preview">GIF preview</string>
     <string name="text_gif_preview_desc">File path: </string>
+    <string name="text_sensor_info" formatted="true">Sensor Information: \n 3: %1$g, θ: %2$g, \n 1: %3$g, y: %4$g</string>
+    <string name="text_sensor_info_1st">Tab the camera button to capture the first frame.</string>
+    <string name="text_hint_guidance">Hint: Tap the number at bottom right corner \nto toggle the photo guide.</string>
 
     <!-- Miscellaneous -->
     <string name="hello_world">Hello world!</string>

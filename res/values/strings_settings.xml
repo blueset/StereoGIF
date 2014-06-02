@@ -42,14 +42,14 @@
     	<string name="pref_credits_eana_desc">Programming. Blueset Studio 1A23.com</string>
     	
     	<string name="pref_credits_mint">Minton Tiew</string>
-    	<string name="pref_credits_mint_desc">Graphic design, idea provider.</string>
+    	<string name="pref_credits_mint_desc">Graphic Design, Concept Artist.</string>
     	
     	<string name="pref_credits_zach">Zachary Teo</string>
-    	<string name="pref_credits_zach_desc">Lorem ipsum dolor sit amet</string>
+    	<string name="pref_credits_zach_desc">Programming (Assistant), Conseptualiser</string>
     	
     	<string name="pref_credits_sq">Shu Qing</string>
-    	<string name="pref_credits_sq_desc">Consectetur adipiscing elit</string>
+    	<string name="pref_credits_sq_desc">Design (Assistant)</string>
     	
     	<string name="pref_credits_bry">Bryan Lim</string>
-    	<string name="pref_credits_bry_desc">Morbi accumsan eleifend tempor</string>
+    	<string name="pref_credits_bry_desc">Pseudo Director, Programming (Assistant)</string>
 </resources>

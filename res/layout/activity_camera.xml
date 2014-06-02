@@ -26,8 +26,42 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true" >
+        
+       
+
+       <LinearLayout
+            android:id="@+id/camera_top_bars"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center"
+            android:orientation="horizontal"
+            android:background="@drawable/shape_sensor_info_bg"
+            tools:ignore="UselessParent" >
+			 
+			<TextView
+                android:id="@+id/rotate_sensor_info"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingTop="6dp"
+                android:paddingBottom="20dp"
+                android:text="@string/text_hint_guidance" 
+                android:color="@android:color/white"
+                />
+             
+             
+        </LinearLayout>
 
         
+        <ImageView 
+            android:id="@+id/imageView_semi_trans_preview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:alpha="0.5"
+            android:scaleType="centerCrop"
+            />
         
         <LinearLayout
             android:id="@+id/fullscreen_content_controls"

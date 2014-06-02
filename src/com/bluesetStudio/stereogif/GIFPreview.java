@@ -62,12 +62,6 @@ public class GIFPreview extends Activity {
         
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.gifpreview, menu);
-        return true;
-    }
     
     public static byte[] readFile(String file) throws IOException {
         return readFile(new File(file));
